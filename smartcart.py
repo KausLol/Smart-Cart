@@ -26,21 +26,21 @@ class EnhancedShoppingCart:
         
         # Configure modern colors and styles
         self.style.configure("TFrame", background="#f0f0f0")
-        self.style.configure("TLabel", background="#f0f0f0", font=("Segoe UI", 10))
+        self.style.configure("TLabel", background="#f0f0f0", font=("Segoe UI", 12))
         self.style.configure("TButton", 
-                           font=("Segoe UI", 10),
-                           padding=10,
+                           font=("Segoe UI", 12),
+                           padding=15,
                            background="#003366",  
                            foreground="white")
         self.style.configure("TLabelframe", 
                            background="#f0f0f0",
-                           font=("Segoe UI", 11, "bold"))
+                           font=("Segoe UI", 13, "bold"))
         self.style.configure("TLabelframe.Label", 
                            background="#f0f0f0",
-                           font=("Segoe UI", 11, "bold"))
+                           font=("Segoe UI", 13, "bold"))
         self.style.configure("TEntry", 
-                           padding=5,
-                           font=("Segoe UI", 10))
+                           padding=8,
+                           font=("Segoe UI", 12))
         self.style.configure("TSpinbox", 
                            padding=5,
                            font=("Segoe UI", 10))
@@ -162,26 +162,26 @@ class EnhancedShoppingCart:
         self.auth_frame.place(relx=0.5, rely=0.5, anchor='center')
 
         auth_container = ttk.Frame(self.auth_frame)
-        auth_container.pack(padx=30, pady=30)
+        auth_container.pack(padx=40, pady=40)
 
         # Add a welcome message
         welcome_label = ttk.Label(auth_container, 
                                 text="Welcome to Smart Cart!",
-                                font=("Segoe UI", 16, "bold"))
-        welcome_label.grid(row=0, column=0, columnspan=2, pady=(0, 20))
+                                font=("Segoe UI", 20, "bold"))
+        welcome_label.grid(row=0, column=0, columnspan=2, pady=(0, 30))
 
-        ttk.Label(auth_container, text="Username:").grid(row=1, column=0, pady=5, sticky='e', padx=5)
-        self.username_entry = ttk.Entry(auth_container, width=30)
-        self.username_entry.grid(row=1, column=1, pady=5, padx=5)
+        ttk.Label(auth_container, text="Username:", font=("Segoe UI", 12)).grid(row=1, column=0, pady=10, sticky='e', padx=10)
+        self.username_entry = ttk.Entry(auth_container, width=35, font=("Segoe UI", 12))
+        self.username_entry.grid(row=1, column=1, pady=10, padx=10)
 
-        ttk.Label(auth_container, text="Password:").grid(row=2, column=0, pady=5, sticky='e', padx=5)
-        self.password_entry = ttk.Entry(auth_container, show="•", width=30)
-        self.password_entry.grid(row=2, column=1, pady=5, padx=5)
+        ttk.Label(auth_container, text="Password:", font=("Segoe UI", 12)).grid(row=2, column=0, pady=10, sticky='e', padx=10)
+        self.password_entry = ttk.Entry(auth_container, show="•", width=35, font=("Segoe UI", 12))
+        self.password_entry.grid(row=2, column=1, pady=10, padx=10)
 
         btn_frame = ttk.Frame(auth_container)
-        btn_frame.grid(row=3, column=0, columnspan=2, pady=20)
-        ttk.Button(btn_frame, text="Sign In", command=self.authenticate).pack(side=tk.LEFT, padx=10)
-        ttk.Button(btn_frame, text="Register", command=self.create_register_interface).pack(side=tk.LEFT, padx=10)
+        btn_frame.grid(row=3, column=0, columnspan=2, pady=30)
+        ttk.Button(btn_frame, text="Sign In", command=self.authenticate, width=15).pack(side=tk.LEFT, padx=15)
+        ttk.Button(btn_frame, text="Register", command=self.create_register_interface, width=15).pack(side=tk.LEFT, padx=15)
 
     def create_register_interface(self):
         self.auth_frame.destroy()
@@ -189,20 +189,20 @@ class EnhancedShoppingCart:
         self.register_frame.place(relx=0.5, rely=0.5, anchor='center')
 
         reg_container = ttk.Frame(self.register_frame)
-        reg_container.pack(padx=20, pady=20)
+        reg_container.pack(padx=40, pady=40)
 
-        ttk.Label(reg_container, text="New Username:").grid(row=0, column=0, pady=5, sticky='e')
-        self.new_username_entry = ttk.Entry(reg_container)
-        self.new_username_entry.grid(row=0, column=1, pady=5)
+        ttk.Label(reg_container, text="New Username:", font=("Segoe UI", 12)).grid(row=0, column=0, pady=15, sticky='e', padx=10)
+        self.new_username_entry = ttk.Entry(reg_container, width=35, font=("Segoe UI", 12))
+        self.new_username_entry.grid(row=0, column=1, pady=15, padx=10)
 
-        ttk.Label(reg_container, text="New Password:").grid(row=1, column=0, pady=5, sticky='e')
-        self.new_password_entry = ttk.Entry(reg_container, show="•")
-        self.new_password_entry.grid(row=1, column=1, pady=5)
+        ttk.Label(reg_container, text="New Password:", font=("Segoe UI", 12)).grid(row=1, column=0, pady=15, sticky='e', padx=10)
+        self.new_password_entry = ttk.Entry(reg_container, show="•", width=35, font=("Segoe UI", 12))
+        self.new_password_entry.grid(row=1, column=1, pady=15, padx=10)
 
         btn_frame = ttk.Frame(reg_container)
-        btn_frame.grid(row=2, column=0, columnspan=2, pady=10)
-        ttk.Button(btn_frame, text="Register", command=self.register_user).pack(side=tk.LEFT, padx=5)
-        ttk.Button(btn_frame, text="Back to Login", command=self.back_to_login).pack(side=tk.LEFT, padx=5)
+        btn_frame.grid(row=2, column=0, columnspan=2, pady=30)
+        ttk.Button(btn_frame, text="Register", command=self.register_user, width=15).pack(side=tk.LEFT, padx=15)
+        ttk.Button(btn_frame, text="Back to Login", command=self.back_to_login, width=15).pack(side=tk.LEFT, padx=15)
 
     def is_strong_password(self, password):
         if len(password) < 8:
@@ -343,6 +343,14 @@ class EnhancedShoppingCart:
                                   relief="flat")
         self.summary_text.pack(padx=10, pady=10)
 
+        # Checkout Button - Moved to a more visible position
+        checkout_frame = ttk.Frame(right_frame)
+        checkout_frame.pack(fill=tk.X, pady=(0, 10))
+        ttk.Button(checkout_frame, 
+                  text="Proceed to Checkout",
+                  command=self.open_checkout_page,
+                  width=20).pack(anchor=tk.CENTER, pady=5)
+
         # Coupons
         coupon_list_frame = ttk.LabelFrame(right_frame, text="Available Coupons")
         coupon_list_frame.pack(fill=tk.X, pady=(0, 10))
@@ -372,14 +380,6 @@ class EnhancedShoppingCart:
                  command=self.get_lucky_coupon).pack(side=tk.LEFT, padx=10, pady=10)
         self.lucky_status = ttk.Label(self.lucky_frame, text="", font=("Segoe UI", 10))
         self.lucky_status.pack(side=tk.LEFT, padx=10, pady=10)
-
-        # Checkout Button - Now in a fixed position at the bottom with reduced size
-        checkout_frame = ttk.Frame(right_frame)
-        checkout_frame.pack(side=tk.BOTTOM, fill=tk.X, pady=(10, 0))
-        ttk.Button(checkout_frame, 
-                  text="Proceed to Checkout",
-                  command=self.open_checkout_page,
-                  width=20).pack(anchor=tk.CENTER, pady=5)
 
     def update_coupon_list(self):
         self.coupon_list_text.config(state='normal')
